@@ -129,9 +129,11 @@ class ReportGenerator {
 					// Test name
 					const testTitleTd = testTr.ele('td', { class: 'test' }, test.title);
 
-					// Test Failure Messages
 					if (test.failureMessages && (this.config.shouldIncludeFailureMessages())) {
-						const failureMsgDiv = testTitleTd.ele('div', { class: 'failureMessages' });
+						const details = testTitleTd.ele('details');
+						details.ele('summary', 'Failure messages');
+
+						const failureMsgDiv = details.ele('div', { class: 'failureMessages' });
 						test.failureMessages.forEach((failureMsg) => {
 							failureMsgDiv.ele('pre', { class: 'failureMsg' }, stripAnsi(failureMsg));
 						});
