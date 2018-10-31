@@ -15,6 +15,7 @@
     "bundle": "rollup -c rollup.config.js",
     "bundle:minified": "rollup -c rollup.config.js --environment BUILD:minified",
     "bundle:all": "npm run bundle && npm run bundle:minified",
+    "prepare": "npm run build",
     "build": "npm run test && npm run bundle:all"
   },
   "repository": {
