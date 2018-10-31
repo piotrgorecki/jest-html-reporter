@@ -129,7 +129,7 @@ class ReportGenerator {
 					// Test name
 					const testTitleTd = testTr.ele('td', { class: 'test' }, test.title);
 
-					if (test.failureMessages && (this.config.shouldIncludeFailureMessages())) {
+					if (test.failureMessages && test.failureMessages.length && (this.config.shouldIncludeFailureMessages())) {
 						const details = testTitleTd.ele('details');
 						details.ele('summary', 'Failure messages');
 
